@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6eec9de-4fa2-4c2e-b939-414a2e613bcd" name="Default Changelist" comment="" />
+    <list default="true" id="c6eec9de-4fa2-4c2e-b939-414a2e613bcd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b4344fcc-114f-4270-82c3-8a0ad9200470.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b4344fcc-114f-4270-82c3-8a0ad9200470.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProjectsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProjectsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_11_062324_create_projects_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_11_062324_create_projects_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/projects/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/projects/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/projects/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/projects/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ProjectsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ProjectTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ProjectTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -118,6 +138,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1fwP9SdPr4epJzfhrVItQbKcwtB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -154,6 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597126029935</updated>
       <workItem from="1597126031025" duration="17333000" />
+      <workItem from="1597212313856" duration="28789000" />
     </task>
     <servers />
   </component>
@@ -169,21 +191,21 @@
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
     <state x="1458" y="261" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597126808622" />
-    <state x="2064" y="319" width="513" height="568" key="NewPhpClassDialog" timestamp="1597126162517">
+    <state x="2064" y="319" width="513" height="568" key="NewPhpClassDialog" timestamp="1597216184325">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="2064" y="319" width="513" height="568" key="NewPhpClassDialog/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597126162517" />
-    <state x="2121" y="525" width="399" height="156" key="NewPhpFileDialog" timestamp="1597140284138">
+    <state x="2064" y="319" width="513" height="568" key="NewPhpClassDialog/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597216184325" />
+    <state x="2121" y="525" width="399" height="156" key="NewPhpFileDialog" timestamp="1597213930170">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="2121" y="525" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597140284138" />
-    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor" timestamp="1597126739090">
+    <state x="2121" y="525" width="399" height="156" key="NewPhpFileDialog/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597213930170" />
+    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor" timestamp="1597216175160">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597126739090" />
-    <state x="1989" y="269" width="672" height="678" key="search.everywhere.popup" timestamp="1597144695021">
+    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597216175160" />
+    <state x="1989" y="269" width="672" height="678" key="search.everywhere.popup" timestamp="1597244217435">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="1989" y="269" width="672" height="678" key="search.everywhere.popup/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597144695021" />
+    <state x="1989" y="269" width="672" height="678" key="search.everywhere.popup/72.27.1294.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597244217435" />
   </component>
 </project>

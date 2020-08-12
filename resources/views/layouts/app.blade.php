@@ -24,7 +24,7 @@
         <nav class="bg-white">
             <div class="container mx-auto">
                 <div class="flex justify-between items-end py-2">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/projects') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="291" height="45" viewBox="0 0 291 45">
                         <g fill="none" fill-rule="evenodd">
                             <g fill="#222">
