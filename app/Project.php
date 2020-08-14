@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Project extends Model
 {
     protected $guarded = [];
@@ -41,4 +42,19 @@ class Project extends Model
         return $this->hasMany(Task::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activity()
+    {
+        return $this->hasMany(Activity::class);
+    }
+
+    /**
+     * @param $description
+     */
+    public function recordActivity($description)
+    {
+        $this->activity()->create(compact('description'));
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProjectsRequest;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -26,27 +27,28 @@ class ProjectsController extends Controller
      */
     public function store()
     {
-        $attributes = request()->validate(
-            [
-                'title' => 'required',
-                'description' => 'required',
-                'notes' => 'min:3',
-            ]);
-
-        $project = auth()->user()->projects()->create($attributes);
+        $project = auth()->user()->projects()->create($this->validateReq());
 
         return redirect($project->path());
     }
 
-    public function update(Project $project)
+    /**
+     * @param Project $project
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(UpdateProjectsRequest $projectsRequest ,Project $project)
     {
-        if(auth()->user()->isNot($project->owner)){
-            abort(403);
-        }
-        $project->update([
-            'notes' => \request('notes'),
-        ]);
+        $this->authorize('update', $project);
+
+        $project->update($this->validateReq());
+
         return redirect($project->path());
+    }
+
+    public function edit(Project $project)
+    {
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -57,9 +59,8 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
-        if (auth()->user()->isNot($project->owner)) {
-            abort(403);
-        }
+        $this->authorize('update', $project);
+
         return view('projects.show', compact('project'));
     }
 
@@ -69,5 +70,19 @@ class ProjectsController extends Controller
     public function create()
     {
         return view('projects.create');
+    }
+
+    /**
+     * @return array
+     */
+    public function validateReq()
+    {
+        $attributes = request()->validate(
+            [
+                'title' => 'sometimes|required',
+                'description' => 'sometimes|required',
+                'notes' => 'min:3',
+            ]);
+        return $attributes;
     }
 }

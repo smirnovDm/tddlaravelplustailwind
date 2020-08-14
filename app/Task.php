@@ -15,7 +15,38 @@ class Task extends Model
      */
     protected $table = 'tasks';
 
+    /**
+     * @var string[]
+     */
+    protected $casts = [
+        'completed' => 'boolean'
+    ];
+
+    /**
+     * @var string[]
+     */
     protected $touches = ['project'];
+
+    /**
+     * Complete the task.
+     */
+    public function complete()
+    {
+        $this->update(['completed' => true]);
+
+        $this->project->recordActivity('completed_task');
+    }
+
+    /**
+     * Incomplete the task.
+     */
+    public function incomplete()
+    {
+        $this->update(['completed' => false]);
+
+        $this->project->recordActivity('uncompleted_task');
+    }
+
 
     /**
      * @return string

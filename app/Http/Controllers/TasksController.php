@@ -14,9 +14,7 @@ class TasksController extends Controller
      */
     public function store(Project $project)
     {
-        if(auth()->user()->isNot($project->owner)){
-            abort(403);
-        }
+        $this->authorize('update', $project);
         request()->validate(
             [
                 'body' => 'required',
@@ -34,14 +32,11 @@ class TasksController extends Controller
      */
     public function update(Project $project, Task $task)
     {
-        if(auth()->user()->isNot($task->project->owner)){
-            abort(403);
-        }
+        $this->authorize('update', $task->project);
 
-        $task->update([
-            'body'      => request('body'),
-            'completed' => request()->has('completed'),
-        ]);
+        $task->update(['body' => request('body')]);
+
+        request('completed') ? $task->complete() : $task->incomplete();
 
        return redirect($project->path());
     }

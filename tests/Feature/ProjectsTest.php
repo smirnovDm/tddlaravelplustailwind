@@ -15,12 +15,16 @@ class ProjectsTest extends TestCase
     /**
      * @test
      */
-    public function guests_cannot_create_project()
+    public function guests_cannot_manage_project()
     {
-        $attributes = factory(Project::class)->raw();
+        $project = factory(Project::class)->create();
 
-        $this->post('/projects', $attributes)->assertRedirect('login');
+        $this->post('/projects', $project->toArray())->assertRedirect('login');
+        $this->get($project->path())->assertRedirect('login');
         $this->get('/projects/create')->assertRedirect('login');
+        $this->get($project->path(). '/edit')->assertRedirect('login');
+        $this->post('/projects', $project->toArray())->assertRedirect('login');
+
     }
 
     /**
@@ -67,7 +71,6 @@ class ProjectsTest extends TestCase
 
         $this->assertDatabaseHas('projects', $attributes);
 
-//        $this->get('/projects')->assertSee(\Str::limit($attributes['title'], 35));
         $this->get($project->path())
              ->assertSee(\Str::limit($attributes['title'], 35))
              ->assertSee($attributes['description'])
@@ -85,12 +88,34 @@ class ProjectsTest extends TestCase
 
         $project = factory(Project::class)->create([ 'owner_id' => auth()->id() ]);
 
-        $this->patch($project->path(), [
-
-            'notes' => 'Changed',
+        $this->patch($project->path(), $attributes = [
+            'title'       => 'Changed',
+            'description' => 'Changed',
+            'notes'       => 'Changed',
         ])->assertRedirect($project->path());
 
-        $this->assertDatabaseHas('projects', ['notes' => 'Changed']);
+        $this->get($project->path(). '/edit')->assertStatus(200);
+
+        $this->assertDatabaseHas('projects', $attributes);
+
+    }
+
+    /**
+     * @test
+     */
+    public function a_user_can_update_a_projects_general_notes()
+    {
+        $this->signIn();
+
+        $this->withoutExceptionHandling();
+
+        $project = factory(Project::class)->create([ 'owner_id' => auth()->id() ]);
+
+        $this->patch($project->path(), $attributes = [
+            'notes'       => 'Changed',
+        ]);
+
+        $this->assertDatabaseHas('projects', $attributes);
 
     }
 
@@ -144,6 +169,18 @@ class ProjectsTest extends TestCase
         $project = factory(Project::class)->create();
 
         $this->get($project->path())->assertStatus(403);
+    }
+
+    /**
+     * @test
+     */
+    public function an_authenticated_user_cannot_update_the_projects_of_others()
+    {
+        $this->signIn();
+
+        $project = factory(Project::class)->create();
+
+        $this->patch($project->path(), [])->assertStatus(403);
     }
 
 }

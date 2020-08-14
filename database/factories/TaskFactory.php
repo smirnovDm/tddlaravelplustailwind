@@ -10,6 +10,7 @@ $factory->define(Task::class, function (Faker $faker) {
         'body'       => $faker->paragraph,
         'project_id' => function() {
             return factory(\App\Project::class)->create()->id;
-        }
+        },
+        'completed'  => false
     ];
 });
